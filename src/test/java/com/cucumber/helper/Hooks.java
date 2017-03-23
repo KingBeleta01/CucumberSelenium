@@ -31,7 +31,7 @@ public class Hooks {
 
 	String extentReportFile = System.getProperty("user.dir") + "/Reports/"
 			+ "extentReportFile.html";
-	String extentReportImage = System.getProperty("user.dir") + "/Reports/";
+	String extentReportImage = System.getProperty("user.dir") + "/Reports/img/";
 
 	public static ExtentReports reports;
 	public static ExtentTest extentTest;
@@ -59,13 +59,17 @@ public class Hooks {
 		extentTest.log(expectedResult, log);
 	}
 
-	public void extentLogScreenshot(LogStatus expectedResult, String log) throws Exception {
+	public void extentLogScreenshot(LogStatus expectedResult, String log)
+			throws Exception {
 		String src = log.replaceAll("[^A-Za-z0-9]", "");
-		Rectangle screenRect = new Rectangle(Toolkit.getDefaultToolkit().getScreenSize());
+		Rectangle screenRect = new Rectangle(Toolkit.getDefaultToolkit()
+				.getScreenSize());
 		BufferedImage capture = new Robot().createScreenCapture(screenRect);
-		ImageIO.write(capture, "jpg", new File(extentReportImage + src +".jpg"));
+		ImageIO.write(capture, "jpg",
+				new File(extentReportImage + src + ".jpg"));
 
-		String img = extentTest.addScreenCapture(extentReportImage + src +".jpg");
+		String img = extentTest.addScreenCapture(extentReportImage + src
+				+ ".jpg");
 		extentTest.log(expectedResult, log, img);
 	}
 
@@ -77,12 +81,7 @@ public class Hooks {
 
 		try {
 			if (!scenario.isFailed()) {
-				scenario.write("Current Page URL is " + driver.getCurrentUrl());
-				/*byte[] screenshot = ((TakesScreenshot) driver)
-						.getScreenshotAs(OutputType.BYTES);
-				scenario.embed(screenshot, "image/png");*/
 				extentLogScreenshot(LogStatus.PASS, "Done Testing!");
-				
 			}
 		} catch (WebDriverException wde) {
 			logger.error("Error: " + wde.getMessage());
@@ -91,10 +90,9 @@ public class Hooks {
 			if (driver != null) {
 				reports.endTest(extentTest);
 				reports.flush();
-				//driver.get(extentReportFile);
 				driver.quit();
 			}
 		}
-		
+
 	}
 }
