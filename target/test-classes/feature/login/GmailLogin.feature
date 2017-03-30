@@ -11,7 +11,7 @@ When the user enter valid gmail credentials.
 Then the user successfully logged in in gmail.
 
 Scenario: Invalid user should not be able to log in.
-When the user enter invalid password.
+When the user enter invalid gmail password.
 Then error message in gmail password is displayed.
 
 Scenario: User did not enter any username
