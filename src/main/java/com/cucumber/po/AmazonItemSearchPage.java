@@ -56,7 +56,7 @@ public class AmazonItemSearchPage {
 		wd.verifyElement(AmazonItemSearchUiStore.NO_RESULTS_MESSAGE, true);
 	}
 	
-	public static void sample() {
+	public static void sample1234() {
 		
 	}
 	
