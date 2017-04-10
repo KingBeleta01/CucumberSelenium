@@ -15,10 +15,10 @@ public class SalesforceLoginPage {
 	}
 
 	public void navigateToSalesforce() {
-		wd.getUrl(SalesforceLoginUiStore.SALESFORCE_URL);
+		wd.get(SalesforceLoginUiStore.SALESFORCE_URL);
 	}
 
-	public void login() {
+	public void login() throws Exception {
 		wd.sendKeys(SalesforceLoginUiStore.USERNAME_ELEMENT,
 				SalesforceLoginUiStore.SALESFORCE_USERNAME);
 		wd.sendKeys(SalesforceLoginUiStore.PASSWORD_ELEMENT,
@@ -26,21 +26,21 @@ public class SalesforceLoginPage {
 		wd.clickElement(SalesforceLoginUiStore.LOGIN_TO_SANDBOX_BUTTON);
 	}
 
-	public void loginWithBlankUsername() {
+	public void loginWithBlankUsername() throws Exception {
 		wd.sendKeys(SalesforceLoginUiStore.USERNAME_ELEMENT, "");
 		wd.sendKeys(SalesforceLoginUiStore.PASSWORD_ELEMENT,
 				SalesforceLoginUiStore.SALESFORCE_PASSWORD);
 		wd.clickElement(SalesforceLoginUiStore.LOGIN_TO_SANDBOX_BUTTON);
 	}
 
-	public void loginWithBlankPassword() {
+	public void loginWithBlankPassword() throws Exception {
 		wd.sendKeys(SalesforceLoginUiStore.USERNAME_ELEMENT,
 				SalesforceLoginUiStore.SALESFORCE_USERNAME);
 		wd.sendKeys(SalesforceLoginUiStore.PASSWORD_ELEMENT, "");
 		wd.clickElement(SalesforceLoginUiStore.LOGIN_TO_SANDBOX_BUTTON);
 	}
 
-	public void verifyInvalidPasswordErrorMessage() {
+	public void verifyInvalidPasswordErrorMessage() throws Exception {
 		String expectedErrorMessage = "Please check your username and password. If you still can't log in, contact your Salesforce administrator.";
 		wd.verifyElement(SalesforceLoginUiStore.SIGNIN_PASSWORD_ERROR_MESSAGE,
 				true);
@@ -53,7 +53,7 @@ public class SalesforceLoginPage {
 		}
 	}
 
-	public void verifyBlankPasswordErrorMessage() {
+	public void verifyBlankPasswordErrorMessage() throws Exception {
 		String expectedErrorMessage = "Please enter your password.";
 		wd.verifyElement(SalesforceLoginUiStore.SIGNIN_PASSWORD_ERROR_MESSAGE,
 				true);
@@ -66,7 +66,7 @@ public class SalesforceLoginPage {
 		}
 	}
 
-	public void verifyLoginPage() {
+	public void verifyLoginPage() throws Exception {
 		wd.verifyElement(SalesforceLoginUiStore.USERNAME_ELEMENT, true);
 
 	}

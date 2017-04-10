@@ -19,40 +19,40 @@ public class AmazonItemSearchPage {
 	}
 
 	
-	public static void navigateToAmazon() {
+	public static void navigateToAmazon() throws Exception {
 		PageFactory.initElements(Hooks.driver, AmazonItemSearchPage.class);
-		wd.getUrl(AmazonItemSearchUiStore.AMAZON_URL);
+		wd.get(AmazonItemSearchUiStore.AMAZON_URL);
 	}
 
-	public static void enterItemInItemSearchBox() {
+	public static void enterItemInItemSearchBox() throws Exception {
 		wd.sendKeys(AmazonItemSearchUiStore.SEARCH_BOX, AmazonItemSearchUiStore.AMAZON_ITEM);
 		wd.clickElement(AmazonItemSearchUiStore.SEARCH_BUTTON);
 	}
 	
-	public static void verifyResultsPageIsDisplayed() {
+	public static void verifyResultsPageIsDisplayed() throws Exception {
 		wd.verifyElement(AmazonItemSearchUiStore.RESULTS_PAGE, true);
 	}
 	
-	public static void enterIncompleteItemNameInSearchBox() {
+	public static void enterIncompleteItemNameInSearchBox() throws Exception {
 		wd.sendKeys(AmazonItemSearchUiStore.SEARCH_BOX, AmazonItemSearchUiStore.AMAZON_INCOMPLETE_ITEM_NAME);
 		wd.clickElement(AmazonItemSearchUiStore.SEARCH_BUTTON);
 	}
 	
-	public static void enterBlankItemNameInSearchBox() {
+	public static void enterBlankItemNameInSearchBox() throws Exception {
 		wd.sendKeys(AmazonItemSearchUiStore.SEARCH_BOX, AmazonItemSearchUiStore.AMAZON_BLANK_ITEM_NAME);
 		wd.clickElement(AmazonItemSearchUiStore.SEARCH_BUTTON);
 	}
 	
-	public static void verifyHomePage() {
+	public static void verifyHomePage() throws Exception {
 		wd.verifyElement(AmazonItemSearchUiStore.CAROULSEL_HOME_PAGE, true);
 	}
 	
-	public static void enterInvalidItem() {
+	public static void enterInvalidItem() throws Exception {
 		wd.sendKeys(AmazonItemSearchUiStore.SEARCH_BOX, AmazonItemSearchUiStore.AMAZON_INVALID_ITEM);
 		wd.clickElement(AmazonItemSearchUiStore.SEARCH_BUTTON);
 	}
 	
-	public static void verifyNoItemErrorMessage() {
+	public static void verifyNoItemErrorMessage() throws Exception {
 		wd.verifyElement(AmazonItemSearchUiStore.NO_RESULTS_MESSAGE, true);
 	}
 	

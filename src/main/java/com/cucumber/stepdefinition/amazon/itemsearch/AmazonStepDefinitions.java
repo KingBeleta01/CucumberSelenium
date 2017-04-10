@@ -18,32 +18,67 @@ public class AmazonStepDefinitions implements En{
 		
 		Given("^the User is in home page.$", () -> {
 			PageFactory.initElements(Hooks.driver, AmazonItemSearchPage.class);
-			AmazonItemSearchPage.navigateToAmazon();
+			try {
+				AmazonItemSearchPage.navigateToAmazon();
+			} catch (Exception e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
 		});
 		
 		When("^the user search for a valid item.$", () -> {
-			AmazonItemSearchPage.enterItemInItemSearchBox();
+			try {
+				AmazonItemSearchPage.enterItemInItemSearchBox();
+			} catch (Exception e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
 		});
 		
 		
 		Then("^the user should be able to see the results.$", () -> {
-			AmazonItemSearchPage.verifyResultsPageIsDisplayed();
+			try {
+				AmazonItemSearchPage.verifyResultsPageIsDisplayed();
+			} catch (Exception e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
 		});
 		
 		When("^the user did not enter an item in search box.$", () -> {
-			AmazonItemSearchPage.enterBlankItemNameInSearchBox();
+			try {
+				AmazonItemSearchPage.enterBlankItemNameInSearchBox();
+			} catch (Exception e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
 		});
 		
 		Then("^the user stays in home page.$", () -> {
-			AmazonItemSearchPage.verifyHomePage();
+			try {
+				AmazonItemSearchPage.verifyHomePage();
+			} catch (Exception e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
 		});
 		
 		When("^the user search for an invalid item.$", () -> {
-			AmazonItemSearchPage.enterInvalidItem();
+			try {
+				AmazonItemSearchPage.enterInvalidItem();
+			} catch (Exception e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
 		});
 		
 		Then("^the results page is not displayed.$", () -> {
-			AmazonItemSearchPage.verifyNoItemErrorMessage();
+			try {
+				AmazonItemSearchPage.verifyNoItemErrorMessage();
+			} catch (Exception e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
 		});
 		
 	}
